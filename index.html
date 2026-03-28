@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>类 Brotato 小游戏</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- 开始界面 -->
+  <div id="startOverlay">
+    <div id="startMenu">
+      <h1>来来的奇妙冒险</h1>
+      <p class="start-subtitle">一只猫的传奇生存之旅</p>
+      <div class="start-controls">
+        <p>WASD 移动 | ESC 暂停</p>
+        <p>击杀敌人获取经验和小鱼干</p>
+      </div>
+      <button id="startBtn">开始冒险</button>
+    </div>
+  </div>
+  <!-- 暂停界面 -->
+  <div id="pauseOverlay">
+    <div id="pauseMenu">
+      <h2>游戏暂停</h2>
+      <p>按 ESC 继续</p>
+      <button id="resumeBtn">继续游戏</button>
+    </div>
+  </div>
+  <canvas id="gameCanvas" width="800" height="600"></canvas>
+  <!-- 波次计时器 -->
+  <div id="waveTimer">WAVE 1 | 01:00</div>
+  <!-- 尸潮警告文字 -->
+  <div id="warningText">⚠️ SWARM DETECTED ⚠️</div>
+  <!-- Boss血条容器 -->
+  <div id="bossHealthBarContainer" style="display: none;">
+    <div id="bossHealthBar">
+      <div id="bossHealthFill"></div>
+    </div>
+  </div>
+  <!-- 商店遮罩（盲盒机版本） -->
+  <div id="shopOverlay" style="display: none;">
+    <div id="shopContainer">
+        <div id="regularShop">
+            <h2>喵星补给</h2>
+            <div id="shopCards"></div>
+        </div>
+        <div id="gachaSection">
+            <h2>神秘盲盒</h2>
+            <div id="gachaMachine">
+                <div class="gacha-display">❓</div>
+                <button id="gachaBtn">投入 20 🐟</button>
+            </div>
+        </div>
+    </div>
+    <button id="nextWaveBtn">下一波 (Next Wave)</button>
+  </div>
+  <div id="levelUpOverlay">
+    <div id="levelUpMenu">
+      <!-- 动态生成升级选项 -->
+    </div>
+  </div>
+  <div id="deathOverlay">
+    <div id="deathMenu">
+      <h2>你被土豆星人击败了！</h2>
+      <div class="stat"><span class="stat-label">生存时间：</span><span id="survivalTime">00:00</span></div>
+      <div class="stat"><span class="stat-label">击杀怪物：</span><span id="killCount">0</span></div>
+      <div class="stat"><span class="stat-label">最终等级：</span><span id="finalLevel">1</span></div>
+      <button id="restartBtn">重新开始</button>
+    </div>
+  </div>
+  <div id="winOverlay">
+    <div id="winMenu">
+      <h2>🎉 YOU WIN! 🎉</h2>
+      <p>恭喜击败Boss！</p>
+      <button id="winRestartBtn">重新开始</button>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
